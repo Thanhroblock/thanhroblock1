@@ -8019,14 +8019,14 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
 	end
 	)
 	_G.WeponMatary = ""
-	--page2:Toggle("Auto Farm Mastery Devil Fruit",_G.Mastery,function(v)
-	--	CheckQuest()
-	--	local args = {
-	--		[1] = "AbandonQuest"
-	--	}
-	--	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-	--	_G.Mastery = v
-	--end)
+	page2:Toggle("Auto Farm Mastery Devil Fruit",_G.Mastery,function(v)
+		CheckQuest()
+		local args = {
+			[1] = "AbandonQuest"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+		_G.Mastery = v
+	end)
 	LocalPlayer = game:GetService("Players").LocalPlayer
 	spawn(function()
 		while wait() do
