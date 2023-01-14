@@ -3626,7 +3626,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
 	return top
 	end
 
-	local Window = create:Win("M I D N I G H T x H U B")
+	local Window = create:Win("THANH TRẦN")
 	local Tap1 = Window:Taps("Auto Farm")
 	local Tap2 = Window:Taps("Stats")
 	local Tap3 = Window:Taps("Teleport & Buy")
@@ -8013,9 +8013,6 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
 		if _G.Mastery then
 			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 		end
-		if _G.GunMastery then
-			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-		end
 	end
 	)
 	_G.WeponMatary = ""
@@ -8184,124 +8181,6 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
 							CheckQuest()
 							totarget(CFrameMon)
 						end 
-					end 
-				end
-			end) 
-		end
-	end)
-
-	---Gun---
-	spawn(function()
-		while wait() do
-			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
-				if v:IsA("Tool") then
-					if v:FindFirstChild("RemoteFunctionShoot") then 
-						_G.SelectToolWeaponGun = v.Name
-					end
-				end
-			end
-		end
-	end)
-	spawn(function()
-		while wait() do
-			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
-				if v:IsA("Tool") then
-					if v:FindFirstChild("RemoteFunctionShoot") then 
-						_G.SelectToolWeaponGun = v.Name
-					end
-				end
-			end
-		end
-	end)
-	page1:Toggle("Auto Farm Gun Mastery",_G.GunMastery,function(v)
-		CheckQuest()
-		local args = {
-			[1] = "AbandonQuest"
-		}
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-		_G.GunMastery = v
-		Ms = ""
-	end)
-	spawn(function()
-		while wait() do
-			pcall(function()
-				if _G.GunMastery then
-					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then  
-						CheckQuest()
-						totarget(CFrameQuest)
-						repeat wait() until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-CFrameQuest.Position).Magnitude <= 10
-						wait(1.1)
-						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NaemQuest, LevelQuest)
-						wait(0.5)
-						totarget(CFrameMon)
-					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then  
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							CheckQuest()
-							pcall(function()
-								if game.Workspace.Enemies:FindFirstChild(Ms) then
-									if _G.GunMastery and v.Name == Ms then
-										if setsimulationradius then 
-											sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-										end
-										repeat wait()
-											pcall(function()
-												if game.Workspace.Enemies:FindFirstChild(Ms) then
-													if string.find(LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-														HealthMin = v.Humanoid.MaxHealth*Persen/100
-														PosHee = v.HumanoidRootPart.CFrame
-														if v.Humanoid.Health <= HealthMin then
-															EquipWeapon(_G.SelectToolWeaponGun)
-															v.HumanoidRootPart.CanCollide = false
-															v.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
-															v.HumanoidRootPart.Transparency = 0.75
-															totarget(v.HumanoidRootPart.CFrame * CFrame.new(1,20,1))
-															local args = {
-																[1] = v.HumanoidRootPart.Position,
-																[2] = v.HumanoidRootPart
-															}
-															game:GetService("Players").LocalPlayer.Character[_G.SelectToolWeaponGun].RemoteFunctionShoot:InvokeServer(unpack(args))
-														else
-															if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-																local args = {
-																	[1] = "Buso"
-																}
-																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-															end
-															EquipWeapon(_G.WeponMatary)
-															if HideHitBlox then
-																v.HumanoidRootPart.Transparency = 0.75
-															else
-																v.HumanoidRootPart.Transparency = 1
-															end
-															v.HumanoidRootPart.CanCollide = false
-															v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
-															totarget(v.HumanoidRootPart.CFrame * CFrame.new(20,1,1))
-															game:GetService'VirtualUser':CaptureController()
-															game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-														end 
-														StatrMagnet = true
-													else
-														CheckQuest()
-														totarget(CFrameQuest)
-														repeat wait() until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-CFrameQuest.Position).Magnitude <= 10
-														wait(1.1)
-														game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NaemQuest, LevelQuest)
-														wait(0.5)
-														totarget(CFrameMon)
-													end
-												else
-													CheckQuest()
-													totarget(CFrameMon)
-												end
-											end)
-										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or _G.GunMastery == false or v.Humanoid.Health <= 0 or not v.Parent or v.Humanoid.Health <= 0
-									end
-								else
-									CheckQuest()
-									totarget(CFrameMon)
-								end
-							end)
-						end
 					end 
 				end
 			end) 
@@ -12547,7 +12426,7 @@ if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7
 		while wait(.1) do
 			if _G.LockLevel then
 				if game.Players.localPlayer.Data.Level.Value >= _G.LockLevelValue then
-					game.Players.localPlayer:Kick("ÃÆ ÃâÃÂ¸ÃâÃÂÃÆ ÃâÃÂ¸ÃâÃÂ²ÃÆ ÃâÃÂ¸ÃâÃÂ£ÃÆ ÃâÃÂ¸Ãâ¦ÃÂ¸ÃÆ ÃâÃÂ¸ÃâÃÂ²ÃÆ ÃâÃÂ¸ÃâÃÂ¡ÃÆ ÃâÃÂ¹ÃÂ¢Ã¢â¬Å¡ÃÂ¬ÃÆ ÃâÃÂ¸ÃâÃÂªÃÆ ÃâÃÂ¸ÃâÃÂ£ÃÆ ÃâÃÂ¹ÃÂ¢Ã¢âÂ¬ÃÂ¡ÃÆ ÃâÃÂ¸Ãâ¹Ã¢â¬ ÃÆ ÃâÃÂ¸ÃâÃÂªÃÆ ÃâÃÂ¸ÃâÃÂ´ÃÆ ÃâÃÂ¹ÃÂ¢Ã¢âÂ¬ÃÂ°ÃÆ ÃâÃÂ¸ÃÂ¢Ã¢â¬Å¾ÃÂ¢ÃÆ ÃâÃÂ¹ÃâÃÂÃÆ ÃâÃÂ¸ÃâÃÂ¥ÃÆ ÃâÃÂ¹ÃÂ¢Ã¢âÂ¬ÃÂ°ÃÆ ÃâÃÂ¸ÃâÃÂ§")
+					game.Players.localPlayer:Kick("Ãƒ Ã‚Â¸Ã‚ÂÃƒ Ã‚Â¸Ã‚Â²Ãƒ Ã‚Â¸Ã‚Â£Ãƒ Ã‚Â¸Ã…Â¸Ãƒ Ã‚Â¸Ã‚Â²Ãƒ Ã‚Â¸Ã‚Â¡Ãƒ Ã‚Â¹Ã¢â€šÂ¬Ãƒ Ã‚Â¸Ã‚ÂªÃƒ Ã‚Â¸Ã‚Â£Ãƒ Ã‚Â¹Ã¢â‚¬Â¡Ãƒ Ã‚Â¸Ã‹â€ Ãƒ Ã‚Â¸Ã‚ÂªÃƒ Ã‚Â¸Ã‚Â´Ãƒ Ã‚Â¹Ã¢â‚¬Â°Ãƒ Ã‚Â¸Ã¢â€žÂ¢Ãƒ Ã‚Â¹Ã‚ÂÃƒ Ã‚Â¸Ã‚Â¥Ãƒ Ã‚Â¹Ã¢â‚¬Â°Ãƒ Ã‚Â¸Ã‚Â§")
 				end
 			end
 		end
