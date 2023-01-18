@@ -2610,45 +2610,22 @@ _G.AutoSharkman = value
 end)
 
 spawn(function()
-pcall(function()
 while wait() do
 if _G.AutoSharkman then
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
-if string.find(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate"), "keys") then
-if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Water Key") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Water Key") then
-topos(CFrame.new(-2604.6958, 239.432526, -10315.1982, 0.0425701365, 0, -0.999093413, 0, 1, 0, 0.999093413, 0, 0.0425701365))
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Fishman Karate") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 400 then
-else
-Ms = "Tide Keeper [Lv. 1475] [Boss]"
-if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-if v.Name == Ms then
-OldCFrameShark = v.HumanoidRootPart.CFrame
-repeat task.wait()
-AutoHaki()
-EquipWeapon(_G.SelectWeapon)
-v.Head.CanCollide = false
-v.Humanoid.WalkSpeed = 0
-v.HumanoidRootPart.CanCollide = false
-v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-v.HumanoidRootPart.CFrame = OldCFrameShark
-topos(v.HumanoidRootPart.CFrame*CFrame.new(5,10,7))
-game:GetService("VirtualUser"):CaptureController()
-game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670))
-sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-until not v.Parent or v.Humanoid.Health <= 0 or _G.AutoSharkman == false or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Water Key") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Water Key")
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Sharkman Karate") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Sharkman") then
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman Karate").Level.Value >= 400 then
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkman")
+_G.SelectWeapon = "Sharkman"
 end
+if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Sharkman Karate") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Sharkman Karate").Level.Value >= 400 then
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkman")
+_G.SelectWeapon = "Sharkman"
 end
-else
-topos(CFrame.new(-3570.18652, 123.328949, -11555.9072, 0.465199202, -1.3857326e-08, 0.885206044, 4.0332897e-09, 1, 1.35347511e-08, -0.885206044, -2.72606271e-09, 0.465199202))
-wait(3)
-end
+if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman Karate").Level.Value <= 399 then
+_G.SelectWeapon = "Sharkman Karate"
 end
 else
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-_G.SelectWeapon = "Fishman Karate"
-wait(1)
 _G.AutoFarm = true
 end
 end
@@ -2662,7 +2639,6 @@ StopTween(_G.AutoElectricClaw)
 end)
 
 spawn(function()
-pcall(function()
 while wait() do
 if _G.AutoElectricClaw then
 if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electro") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electric Claw") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electric Claw") then
@@ -2679,52 +2655,10 @@ _G.SelectWeapon = "Electro"
 end
 else
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
-end
-end
-if _G.AutoElectricClaw then
-if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electro") then
-if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electro") and game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 400 or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 400 then
-if _G.AutoFarm == false then
-repeat task.wait()
-topos(CFrame.new(-10371.4717, 330.764496, -10131.4199))
-until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(-10371.4717, 330.764496, -10131.4199).Position).Magnitude <= 10
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw","Start")
-wait(2)
-repeat task.wait()
-topos(CFrame.new(-12550.532226563, 336.22631835938, -7510.4233398438))
-until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(-12550.532226563, 336.22631835938, -7510.4233398438).Position).Magnitude <= 10
-wait(1)
-repeat task.wait()
-topos(CFrame.new(-10371.4717, 330.764496, -10131.4199))
-until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(-10371.4717, 330.764496, -10131.4199).Position).Magnitude <= 10
-wait(1)
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-elseif _G.AutoFarm == true then
-_G.AutoFarm = false
-wait(1)
-repeat task.wait()
-topos(CFrame.new(-10371.4717, 330.764496, -10131.4199))
-until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(-10371.4717, 330.764496, -10131.4199).Position).Magnitude <= 10
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw","Start")
-wait(2)
-repeat task.wait()
-topos(CFrame.new(-12550.532226563, 336.22631835938, -7510.4233398438))
-until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(-12550.532226563, 336.22631835938, -7510.4233398438).Position).Magnitude <= 10
-wait(1)
-repeat task.wait()
-topos(CFrame.new(-10371.4717, 330.764496, -10131.4199))
-until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - CFrame.new(-10371.4717, 330.764496, -10131.4199).Position).Magnitude <= 10
-wait(1)
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-_G.SelectWeapon = "Electric Claw"
-wait(1)
 _G.AutoFarm = true
 end
 end
 end
-end
-end
-end)
 end)
 
 Main:AddToggle("Auto móng vuốt rồng",_G.AutoDragonTalon,function(value)
