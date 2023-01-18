@@ -2597,6 +2597,8 @@ _G.SelectWeapon = "Black Leg"
 end
 else
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+_G.SelectWeapon = "Black Leg"
+wait(1)
 _G.AutoFarm = true
 end
 end
@@ -2645,6 +2647,8 @@ end
 end
 else
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+_G.SelectWeapon = "Fishman Karate"
+wait(1)
 _G.AutoFarm = true
 end
 end
@@ -2713,7 +2717,7 @@ until not _G.AutoElectricClaw or (game:GetService("Players").LocalPlayer.Charact
 wait(1)
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
 _G.SelectWeapon = "Electric Claw"
-wait(.1)
+wait(1)
 _G.AutoFarm = true
 end
 end
@@ -3577,7 +3581,7 @@ v.Humanoid.WalkSpeed = 0
 v.Head.CanCollide = false
 StartMagnetBoneMon = true
 PosMonBone = v.HumanoidRootPart.CFrame
-topos(v.HumanoidRootPart.CFrame * CFrame.new(5,40,7))
+topos(v.HumanoidRootPart.CFrame * CFrame.new(5,30,7))
 game:GetService("VirtualUser"):CaptureController()
 game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 until not _G.Auto_Farm_Bone or not v.Parent or v.Humanoid.Health <= 0
@@ -3588,13 +3592,13 @@ else
 StartMagnetBoneMon = false
 for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
 if v.Name == "Reborn Skeleton [Lv. 1975]" then
-topos(v.HumanoidRootPart.CFrame * CFrame.new(5,40,7))
+topos(v.HumanoidRootPart.CFrame * CFrame.new(5,30,7))
 elseif v.Name == "Living Zombie [Lv. 2000]" then
-topos(v.HumanoidRootPart.CFrame * CFrame.new(5,40,7))
+topos(v.HumanoidRootPart.CFrame * CFrame.new(5,30,7))
 elseif v.Name == "Demonic Soul [Lv. 2025]" then
-topos(v.HumanoidRootPart.CFrame * CFrame.new(5,40,7))
+topos(v.HumanoidRootPart.CFrame * CFrame.new(5,30,7))
 elseif v.Name == "Posessed Mummy [Lv. 2050]" then
-topos(v.HumanoidRootPart.CFrame * CFrame.new(5,40,7))
+topos(v.HumanoidRootPart.CFrame * CFrame.new(5,30,7))
 end
 end
 end
